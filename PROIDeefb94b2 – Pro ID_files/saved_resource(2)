@@ -1,0 +1,418 @@
+jQuery( 'body' ).on( 'click', '.proid-delete-profile-btn a', function( e ) {
+	e.preventDefault();
+	
+	var $ = jQuery;
+
+	if ( $(this).hasClass('ajaxing') ) {
+		return;
+	}
+
+	if ( confirm( 'Are you sure you want to delete this post?' ) ) {
+		$( this ).addClass('ajaxing');
+		$.ajax({
+			url: exad_frontend_ajax_object.ajaxurl,
+			type: 'POST',
+			dataType: 'JSON',
+			data: {
+				action: 'proid_delete_post',
+				post_id: $(this).closest('.jet-listing-grid__item').attr('data-post-id'),
+			},
+			success: function( d ) {
+				$('.jet-listing-grid__item[data-post-id="' + d.id + '"]').remove();
+			}
+		})
+		.fail(function() {
+			alert( 'Unable to delete.' );
+		})
+		.always(function() {
+			
+		});
+		
+	}
+
+} );
+
+jQuery(document).ready(function($) {
+    $('#disable-account-btn').on('click', function() {
+        $.ajax({
+            url: disable_account_data.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'disable_account',
+                user_id: disable_account_data.user_id
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert('Tài khoản đã được khóa thành công');
+                    location.reload();
+                } else {
+                    alert('Lỗi: ' + response.data);
+                }
+            }
+        });
+    });
+});
+
+
+var proid_product_title = ''; 
+
+jQuery( 'body' ).on( 'click', '.order_button_1', function( e ) {
+	proid_product_title = jQuery( this ).closest( '.e-con-inner' ).find( '.product-title-bar h2' ).text();
+} );
+
+jQuery( document ).on( 'elementor/popup/show', () => {
+	jQuery( '#form-field-product_name_field_1' ).val(proid_product_title);
+} );
+
+jQuery(document).ready(function($) {
+	
+ document.getElementById('excel-field').addEventListener('paste', function(event) {
+  var clipboardData = event.clipboardData || window.clipboardData;
+  var pastedData = clipboardData.getData('text');
+  parsePastedData(pastedData);
+  $('#excel-field').val('');
+});
+function parsePastedData(pastedData) {
+  var rows = pastedData.split('\n')[0].split('\t');
+  $('#name-field').val(rows[2]);
+  $('#jobtitle-field').val(rows[6]);
+  $('#email-field').val(rows[9]);
+  $('#phone-field').val(rows[12]);
+  $('#zalo-field').val(rows[15].replace("https://zalo.me/",""));
+  $('#image-id-field').val(rows[0]);
+}
+
+
+	
+  /*$('#autofill-button').on('click', function() {
+    var excelValue = $('#excel-field').val();
+    var values = excelValue.split("\t");
+
+    // Extract the values from the Excel string
+    var name = values[2].trim();
+    var jobtitle = values[3].trim();
+    var email = values[6].trim();
+    var phone = values[8].trim();
+    var zalo = values[9].trim();
+    var imageId = values[10].trim();
+
+    // Populate the form fields
+    $('#name-field').val(name);
+    $('#jobtitle-field').val(jobtitle);
+    $('#email-field').val(email);
+    $('#phone-field').val(phone);
+    $('#zalo-field').val(zalo);
+    $('#image-id-field').val(imageId);
+  });*/
+});
+
+jQuery(document).ready(function($) {
+    $('#download-permalinks').hide();
+    $('#user-genarated-done').hide();
+  $('#users-genarate-form').on('submit', function(e) {
+    $('#create_new_user_btn').val('Creating...');
+    e.preventDefault();
+    
+    var formData = $(this).serializeArray();
+    var numUsers = $('#num_of_users').val();
+    var batchSize = 50; // Number of users to create in each batch
+    var totalBatches = Math.ceil(numUsers / batchSize); // 11
+    var currentBatch = 1;
+    var permalinks = [];
+    var lastroundbatch = numUsers % batchSize;
+
+    //create loop to create users
+    while (currentBatch <= totalBatches) {
+    createUsers();
+      currentBatch++;
+    }
+
+    async function createUsers() {
+      if(currentBatch === totalBatches){
+        currentBatchSize = lastroundbatch;
+      }else{
+        currentBatchSize = batchSize;
+      }
+
+      $.ajax({
+        url: ajaxurl, // WordPress AJAX handler
+        method: 'POST',
+        async: true,
+        data: {
+            action: 'create_user_batch',
+            currentBatchSize: currentBatchSize,
+            form_data: formData
+        },
+        dataType: 'json',
+        beforeSend: function() {
+          // Show loading indicator or disable submit button
+        },
+        success: function(response) {
+          // Process the response (e.g., handle errors, update UI)
+          //array push permalinks
+          permalinks.push(response.permalinks);
+          if (permalinks.length === totalBatches) {
+            downloadPermalinks(permalinks);
+            $('#create_new_user_btn').val('Create New User');
+          }
+        },
+        error: function(xhr, status, error) {
+          // Handle error (e.g., show error message)
+        },
+        complete: function() {
+          // Hide loading indicator or enable submit button
+        }
+      });
+    }
+
+    function downloadPermalinks(permalinks) {
+        
+      $.ajax({
+        url: ajaxurl, 
+        method: 'POST',
+        data: {
+          action: 'create_user_download_permalinks',
+          permalinks: permalinks
+        },
+        beforeSend: function() {
+          // Show loading indicator or disable UI
+        },
+        success: function(response) {
+            $('#download-permalinks').show();
+			 $('#user-genarated-done').show();
+            $('#download-permalinks').attr('href', response.download_url);
+        },
+        error: function(xhr, status, error) {
+          // Handle error (e.g., show error message)
+        },
+        complete: function() {
+          // Hide loading indicator or enable UI
+        }
+      });
+    }
+  });
+});
+
+
+jQuery(document).ready(function ($) {
+	console.log('test');
+    // Get the tab options data
+    const tabOptions = customScriptData.tabOptions;
+
+    // Define the tab options and their corresponding CSS IDs
+    const tabMappings = [
+        { option: 'home', cssID: 'home_tab' },
+        { option: 'info', cssID: 'info_tab' },
+        { option: 'photo', cssID: 'photo_tab' },
+        { option: 'video', cssID: 'video_tab' },
+        { option: 'shop', cssID: 'shop_tab' },
+        { option: 'blog', cssID: 'blog_tab' },
+    ];
+    if (tabOptions.length === 0) {
+        // If no checkboxes are checked, show all elements
+        tabMappings.forEach(({ cssID }) => {
+            $(`#${cssID}`).show();
+        });
+    } else {
+        // Loop through the tabMappings and hide the elements if their corresponding option is unchecked
+        tabMappings.forEach(({ option, cssID }) => {
+            if (!tabOptions.includes(option)) {
+                $(`#${cssID}`).hide();
+            } else {
+                $(`#${cssID}`).show();
+            }
+        });
+    }
+});
+
+
+  $(document).ready(function() {
+    $('#my-form').submit(function(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+
+      var originalPostUrl = $('#original-post').val();
+      var copiedPostsUrls = $('#copied-posts').val().split('\n');
+      
+      // Perform AJAX request to get metadata from the original post
+      $.ajax({
+        url: 'get-metadata.php',
+        type: 'POST',
+        data: { 'post_url': originalPostUrl },
+        success: function(response) {
+          var metaData = JSON.parse(response);
+
+          // Perform AJAX request to update metadata for copied posts
+          $.each(copiedPostsUrls, function(index, copiedPostUrl) {
+            $.ajax({
+              url: 'update-metadata.php',
+              type: 'POST',
+              data: {
+                'post_url': copiedPostUrl,
+                'meta_data': metaData
+              },
+              success: function(response) {
+                // Handle success message or any other desired actions
+              },
+              error: function() {
+                // Handle error case
+              }
+            });
+          });
+        },
+        error: function() {
+          // Handle error case
+        }
+      });
+    });
+  });
+
+
+document.getElementById('add-product-button').addEventListener('click', function() {
+    document.getElementById('product-form-container').style.display = 'block';
+});
+
+document.getElementById('add-row-button').addEventListener('click', function() {
+    var table = document.getElementById('product-table').getElementsByTagName('tbody')[0];
+    var rowCount = table.rows.length + 1;
+    var row = table.insertRow();
+    
+    row.innerHTML = '<td>' + rowCount + '</td>' +
+                    '<td><input type="text" name="product_name[]"></td>' +
+                    '<td><input type="file" name="product_image[]"></td>' +
+                    '<td><input type="text" name="product_price[]"></td>' +
+                    '<td><input type="text" name="product_link[]"></td>' +
+                    '<td><input type="text" name="product_video[]"></td>' +
+                    '<td><input type="text" name="product_description[]"></td>';
+});
+
+document.getElementById('update-button').addEventListener('click', function() {
+    // Handle the form submission logic here.
+    alert('Products updated successfully!');
+});
+
+jQuery(document).ready(function($) {
+    var mediaFrame;
+
+    $('#open-media-manager').on('click', function(e) {
+        e.preventDefault();
+
+        // If the media frame already exists, reopen it.
+        if (mediaFrame) {
+            mediaFrame.open();
+            return;
+        }
+
+        // Create a new media frame
+        mediaFrame = wp.media({
+            title: 'Select an Image',
+            button: {
+                text: 'Use this image'
+            },
+            multiple: false
+        });
+
+        // When an image is selected, run a callback.
+        mediaFrame.on('select', function() {
+            var attachment = mediaFrame.state().get('selection').first().toJSON();
+            $('#selected-image').html('<img src="' + attachment.url + '" alt="" style="max-width:100%;">');
+        });
+
+        // Finally, open the modal
+        mediaFrame.open();
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const saveContactButton = document.querySelector('.save_contact_btn_1');
+
+    if (saveContactButton) {
+        saveContactButton.addEventListener('click', function(event) {
+            const currentUrl = window.location.href;
+
+            // Check if the URL contains 'Zalo'
+            if (currentUrl.includes('Zalo')) {
+                alert('Để lưu danh bạ trong Zalo, vui lòng bấm vào nút 3 chấm ở góc màn hình bên tay phải, và chọn mở bằng trình duyệt ngoài');
+            } 
+            // Proceed with any other functionality
+        });
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const button = document.querySelector('.test_btn');
+    if (!button) return;
+
+    // Function to detect the browser
+    function detectBrowser() {
+        const userAgent = navigator.userAgent.toLowerCase();
+
+        // Check for Google Chrome
+        const isChrome = /chrome/.test(userAgent) && !/edge|edg/.test(userAgent) && !/opr/.test(userAgent);
+
+        // Check for Safari
+        const isSafari = /safari/.test(userAgent) && !/chrome/.test(userAgent);
+
+        // Check for Samsung Browser
+        const isSamsung = /samsungbrowser/.test(userAgent);
+
+        return isChrome || isSafari || isSamsung;
+    }
+
+    // Attach event listener to the button
+    button.addEventListener('click', function () {
+        if (!detectBrowser()) {
+            alert('Vui lòng mở bằng trình duyệt ngoài để lưu liên hệ');
+        }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const button = document.querySelector('.test_btn');
+    if (!button) return;
+
+    // Function to detect the browser
+    function detectBrowser() {
+        const userAgent = navigator.userAgent.toLowerCase();
+
+        // Check for Google Chrome
+        const isChrome = /chrome/.test(userAgent) && !/edge|edg/.test(userAgent) && !/opr/.test(userAgent);
+
+        // Check for Safari
+        const isSafari = /safari/.test(userAgent) && !/chrome/.test(userAgent);
+
+        // Check for Samsung Browser
+        const isSamsung = /samsungbrowser/.test(userAgent);
+
+        return isChrome || isSafari || isSamsung;
+    }
+
+    // Attach event listener to the button
+    button.addEventListener('click', function () {
+        if (!detectBrowser()) {
+            alert('Vui lòng mở bằng trình duyệt ngoài để lưu liên hệ');
+        }
+    });
+});
+
+
+add_filter( 'jet-engine/query-builder/frontend-editor/is-enabled', '__return_false' );
+
+jQuery(document).ready(function($) {
+    $('#edit-button-3').on('click', function() {
+        // Trigger the click event of edit-button-2
+        $('#edit-button-2').trigger('click'); // Simulate click on edit-button-2
+    });
+
+    // Assuming you have the edit-button-2 click handler as follows
+    $('#edit-button-2').on('click', function() {
+        const postId = $(this).data('post-id'); // Get the post ID
+        if (postId) {
+            window.location.href = 'https://me.proid.vn/account/edit-my-pro-id/?_post_id=' + postId;
+        } else {
+            alert('Post ID not found.');
+        }
+    });
+});

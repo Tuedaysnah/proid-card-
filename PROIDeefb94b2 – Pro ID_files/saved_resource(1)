@@ -1,0 +1,191 @@
+jQuery(document).ready(function($) {
+    $('#enable-account-btn').on('click', function() {
+        $.ajax({
+            url: enable_account_data.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'enable_account',
+                user_id: enable_account_data.user_id
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert('Tài khoản đã được mở khóa thành công');
+                    location.reload();
+                } else {
+                    alert('Lỗi: ' + response.data);
+                }
+            }
+        });
+    });
+});
+
+
+jQuery(document).ready(function($) {
+    $(document).on("click", ".username-suggestion", function() {
+        var username = $(this).text();
+        $("#author-username").val(username);
+        $("#username-suggestions").html("");
+    });
+});
+
+
+jQuery(document).ready(function($) {
+  // Get the 'address' meta field value for the current post
+  var address = '<?php echo get_post_meta( get_the_ID(), "address", true ); ?>';
+
+  // Check if the 'address' meta field value exists
+  if (address) {
+    // Create a new popup element with Google Maps embed code
+    var popupHtml = '<div id="map-popup"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d'+address+'!2d-118.24368572489538!3d34.052234600000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c6b6f5af9dd9%3A0x4b6638c002f85183!2sLos+Angeles%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1475412730844" frameborder="0" allowfullscreen></iframe></div>';
+	  
+
+    // Add the popup element to the body of the document
+    $('body').append(popupHtml);
+
+    // Add click event listener to the button
+    $('#show-map-btn').on('click', function() {
+      // Show the popup
+      $('#map-popup').fadeIn();
+    });
+
+    // Add click event listener to the popup
+    $('#map-popup').on('click', function() {
+      // Hide the popup
+      $(this).fadeOut();
+    });
+  }
+
+
+
+const proidBtn = document.getElementById('proid-btn');
+const popup = document.getElementById('popup');
+
+proidBtn.addEventListener('click', e => {
+  e.preventDefault(); // Prevent default navigation behavior
+
+  popup.style.display = 'block'; // Show the popup
+});
+	});
+
+function generateLoginInfo() {
+  var link = document.getElementById("link").value;
+  var proId = link.match(/my-pro-id=([\w\d]+)/)[1];
+  var loginInfo = "Link đăng nhập: https://me.proid.vn\n" +
+                  "Tên đăng nhập: " + proId + "\n" +
+                  "Mật khẩu: iLoveProID@";
+  document.getElementById("login-info").value = loginInfo;
+}
+
+function copyLoginInfo() {
+  var loginInfo = document.getElementById("login-info");
+  loginInfo.select();
+  document.execCommand("copy");
+}
+
+jQuery(document).ready(function ($) {
+// // Get the link and username fields
+const linkField = document.getElementById('link-field');
+const usernameField = document.getElementById('username-field');
+
+// Listen for changes in the link field
+linkField.addEventListener('input', () => {
+  // Extract the username from the link
+  const urlParams = new URLSearchParams(window.location.search);
+  const username = urlParams.get('my-pro-id').replace('proid', '');
+
+  // Populate the username field with the extracted username
+  usernameField.value = username;
+});
+
+// Listen for form submission
+document.getElementById('reset-password-form').addEventListener('submit', (event) => {
+  // Prevent default form submission
+  event.preventDefault();
+
+  // Send an AJAX request to reset the password
+  const formData = new FormData(event.target);
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '/reset-password.php');
+  xhr.onload = () => {
+    if (xhr.status === 200) {
+      alert('Password reset successful!');
+    } else {
+      alert('Password reset failed!');
+    }
+  };
+  xhr.send(formData);
+});
+	});
+
+
+jQuery(document).ready(function($) {  
+    $('#copy_permalink_button_2').on('click', function() {  
+        // Get the current post permalink (works if you're on a single post or page)
+        var permalink = window.location.href;  
+
+        // Use the modern Clipboard API for better support and reliability
+        navigator.clipboard.writeText(permalink).then(function() {
+            // Provide visual feedback to the user
+            alert('Permalink copied to clipboard!');
+        }).catch(function(error) {
+            console.error('Clipboard copy failed', error);
+        });
+    });  
+});
+
+
+jQuery.noConflict();
+jQuery(document).ready(function($) {
+    $('#cnc').on('click', function() {
+        alert('Button clicked!');
+    });
+});
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    document.getElementById("locationDisplay").innerText = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  const locationText = `Latitude: ${latitude.toFixed(6)}, Longitude: ${longitude.toFixed(6)}`;
+  const locationDisplay = document.getElementById("locationDisplay");
+  locationDisplay.innerText = locationText;
+  locationDisplay.style.display = "block"; // Make the display visible
+  // Optionally, you could also update the button text:
+  // document.getElementById("locationButton").innerText = locationText;
+}
+
+function showError(error) {
+  let errorMessage = "";
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      errorMessage = "User denied the request for Geolocation.";
+      break;
+    case error.POSITION_UNAVAILABLE:
+      errorMessage = "Location information is unavailable.";
+      break;
+    case error.TIMEOUT:
+      errorMessage = "The request to get user location timed out.";
+      break;
+    case error.UNKNOWN_ERROR:
+      errorMessage = "An unknown error occurred.";
+      break;
+  }
+  document.getElementById("locationDisplay").innerText = errorMessage;
+  document.getElementById("locationDisplay").style.display = "block";
+}
+
+// You can trigger the getLocation function when the page loads or when a button is clicked.
+// To trigger on button click:
+const locationButton = document.getElementById("locationButton");
+if (locationButton) {
+  locationButton.addEventListener("click", getLocation);
+}
+
+// To trigger automatically when the page loads (consider user privacy):
+// window.onload = getLocation;

@@ -1,0 +1,8 @@
+/* BEGIN wpcp_print_page_preventer_script */
+		@media print {
+			body * { display: none !important;}
+			body:after {
+				content: "<b>Alert:</b> Nội dung được bảo vệ bởi Pro ID"; }
+			}
+/* END wpcp_print_page_preventer_script */
+

@@ -1,0 +1,37 @@
+.elementor-670 .elementor-element.elementor-element-85ff12f{--display:flex;--flex-direction:column;--container-widget-width:calc( ( 1 - var( --container-widget-flex-grow ) ) * 100% );--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--align-items:center;--border-radius:10px 10px 10px 10px;--z-index:10;}.elementor-widget-image .widget-image-caption{color:var( --e-global-color-text );font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-size:var( --e-global-typography-text-font-size );font-weight:var( --e-global-typography-text-font-weight );text-transform:var( --e-global-typography-text-text-transform );letter-spacing:var( --e-global-typography-text-letter-spacing );}.elementor-670 .elementor-element.elementor-element-2edb8b5 img{width:250px;height:250px;object-fit:cover;object-position:center center;border-radius:15px 15px 15px 15px;}#elementor-popup-modal-670 .dialog-widget-content{animation-duration:0.6s;border-radius:10px 10px 10px 10px;box-shadow:2px 8px 23px 3px rgba(0, 0, 0, 0.1);}#elementor-popup-modal-670{background-color:#00000000;justify-content:center;align-items:center;pointer-events:all;}#elementor-popup-modal-670 .dialog-message{width:275px;height:auto;}#elementor-popup-modal-670 .dialog-close-button{display:flex;top:-24px;background-color:var( --e-global-color-2d8172d );}#elementor-popup-modal-670 .dialog-close-button i{color:var( --e-global-color-primary );}#elementor-popup-modal-670 .dialog-close-button svg{fill:var( --e-global-color-primary );}@media(max-width:1024px){.elementor-widget-image .widget-image-caption{font-size:var( --e-global-typography-text-font-size );letter-spacing:var( --e-global-typography-text-letter-spacing );}}@media(min-width:768px){.elementor-670 .elementor-element.elementor-element-85ff12f{--content-width:500px;}}@media(max-width:767px){.elementor-670 .elementor-element.elementor-element-85ff12f{--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--gap:20px 20px;--row-gap:20px;--column-gap:20px;}.elementor-widget-image .widget-image-caption{font-size:var( --e-global-typography-text-font-size );letter-spacing:var( --e-global-typography-text-letter-spacing );}.elementor-670 .elementor-element.elementor-element-2edb8b5{width:100%;max-width:100%;text-align:center;}.elementor-670 .elementor-element.elementor-element-2edb8b5 img{width:100%;object-fit:contain;border-radius:0px 0px 0px 0px;}#elementor-popup-modal-670 .dialog-message{width:70vw;}}/* Start custom CSS for shortcode, class: .elementor-element-bac479c */.copy-link-button {  
+    width: 100% !important;  
+    display: block !important;  
+    background-color: var(--e-global-color-5882325) !important;  
+    font-family: "Montserrat", sans-serif !important;  
+    font-size: 19px !important;  
+    font-weight: bold !important;  
+    text-transform: uppercase !important;  
+    fill: var(--e-global-color-text) !important;  
+    color: var(--e-global-color-text) !important;  
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;  
+    border-style: solid !important;  
+    border-width: 1px !important;  
+    border-color: var(--e-global-color-383b460) !important;  
+    border-radius: 20px !important;  
+    padding: 10px !important;  
+}/* End custom CSS */
+/* Start custom CSS for container, class: .elementor-element-85ff12f *//* 479px and smaller screen sizes */
+@media (max-width:479px){
+
+	/* Shortcode */
+	.elementor-location-popup .elementor-element .elementor-shortcode{
+		display:flex;
+		justify-content:center;
+	}
+	
+}
+
+/* 450px and smaller screen sizes */
+@media (max-width:450px){
+
+	/* Shortcode */
+	.elementor-location-popup .elementor-element .elementor-shortcode{
+		display:flex;
+	}
+	
+}/* End custom CSS */

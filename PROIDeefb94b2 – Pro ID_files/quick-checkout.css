@@ -1,0 +1,124 @@
+/*
+ * MEPROID Quick Checkout Styles v1.4.1
+ */
+
+/* --- 1. Definitive Scroll Lock --- */
+body.mepid-body-scroll-locked {
+    position: fixed !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+/* --- 2. Main Wrapper & Step Layout --- */
+.mepid-quick-checkout-wrapper {
+    padding: 0; display: flex; flex-direction: column;
+    height: 100%; position: relative;
+}
+
+.mepid-quick-checkout-wrapper.mepid-cart-updating::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); z-index: 10;
+}
+
+.mepid-cart-step { display: none; height: 100%; flex-direction: column; }
+.mepid-quick-checkout-wrapper[data-step="1"] .mepid-cart-step-1,
+.mepid-quick-checkout-wrapper[data-step="2"] .mepid-cart-step-2 {
+    display: flex;
+}
+
+/* --- 3. Step 1: Cart Items List --- */
+.mepid-cart-list, .mepid-cart-form-inner {
+    list-style: none; margin: 0; padding: 10px;
+    overflow-y: auto; flex-grow: 1;
+}
+
+.mepid-cart-item { padding: 15px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 15px; }
+.mepid-cart-item:last-child { border-bottom: none; }
+.mepid-cart-item-image { flex-shrink: 0; width: 60px; height: 60px; }
+.mepid-cart-item-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+.mepid-cart-item-details { display: flex; flex-direction: column; flex-grow: 1; }
+.mepid-cart-item-name { font-weight: 600; margin-bottom: 5px; }
+.mepid-cart-item-quantity-price { font-size: 0.9em; color: #555; }
+
+.mepid-remove-item-link {
+    flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+    background-color: #f1f1f1; color: #aaa; display: flex;
+    align-items: center; justify-content: center; text-decoration: none;
+    font-size: 16px; font-weight: bold; line-height: 1; transition: all 0.2s;
+}
+.mepid-remove-item-link:hover { background-color: #e04f4f; color: #fff; }
+
+/* --- 4. Step 2: Recipient Form --- */
+.mepid-form .form-row { margin-bottom: 10px; }
+.mepid-form label { display: block; margin-bottom: 5px; font-weight: 600; }
+.mepid-form input[type="text"], .mepid-form input[type="tel"], .mepid-form textarea {
+    width: 100%; padding: 8px; border: 1px solid #ccc;
+    border-radius: 4px; box-sizing: border-box;
+}
+
+/* --- 5. Footer and Action Buttons --- */
+.mepid-cart-footer {
+    padding: 15px 10px; background: #fdfdfd; border-top: 1px solid #eee;
+    flex-shrink: 0; box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+}
+
+.mepid-form-actions { display: flex; gap: 10px; margin-top: 15px; }
+
+/* Main Blue Buttons (Next & Order) */
+.mepid-next-step-btn,
+.mepid-submit-order {
+    flex-grow: 1;
+    background: linear-gradient(135deg, #2E9AFE 0%, #0072E3 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px; /* UPDATE: Border radius set to 5px */
+    padding: 14px;
+    font-size: 1.1em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(46, 154, 254, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.mepid-next-step-btn:hover,
+.mepid-submit-order:hover:not(:disabled) {
+    box-shadow: 0 6px 20px rgba(46, 154, 254, 0.6);
+    transform: translateY(-2px);
+}
+
+.mepid-submit-order:disabled {
+    background: #ccc; box-shadow: none; cursor: wait;
+}
+
+/* UPDATE: Enhanced Clicking Effect for Order Button */
+.mepid-submit-order:active:not(:disabled) {
+    transform: translateY(1px) scale(0.98); /* "Push down" effect */
+    box-shadow: 0 2px 10px rgba(46, 154, 254, 0.4);
+    filter: brightness(0.95);
+}
+
+/* UPDATE: New Red/Blue Style for "Quay Lại" Button */
+.mepid-prev-step-btn {
+    flex-grow: 0;
+    background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+    color: #ffffff; /* UPDATE: White text */
+    border: none; /* UPDATE: Removed border */
+    border-radius: 5px; /* UPDATE: Border radius set to 5px */
+    padding: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+}
+.mepid-prev-step-btn:hover {
+    box-shadow: 0 6px 20px rgba(46, 154, 254, 0.5); /* Blue glow effect on hover */
+    transform: translateY(-2px);
+}
+
+/* Message Styling */
+.mepid-messages { padding: 10px; margin: 10px 0; border-radius: 4px; }
+.mepid-success-message { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: block !important; }
+.mepid-error-message { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: block !important; }

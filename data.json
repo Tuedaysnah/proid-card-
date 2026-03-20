@@ -1,0 +1,38 @@
+{
+  "profile": {
+    "firstName": "Nguyễn",
+    "lastName": "Mỹ Linh",
+    "jobTitle": "Giám đốc marketing",
+    "company": "Công ty nội thất Trường An",
+    "phone": "0986851829",
+    "email": "sale@noithattruongan.vn",
+    "website": "https://noithattruongan.vn/",
+    "avatar": "./PROIDeefb94b2 – Pro ID_files/1000007571-scaled.png",
+    "coverImage": "./PROIDeefb94b2 – Pro ID_files/1000040534.jpg",
+    "addresses": [
+      {
+        "label": "Trụ sở chính",
+        "address": "Lô 48-BT5, khu đô thị mới Cầu Bươu, xã Tân Triều, huyện Thanh Trì, Hà Nội"
+      },
+      {
+        "label": "Chi nhánh",
+        "address": "Trung tâm Đảo Ngọc - Thảo Điền"
+      }
+    ],
+    "socialLinks": [
+      {
+        "platform": "Zalo",
+        "url": "https://zalo.me/0986851829",
+        "icon": "fab fa-rocketchat"
+      },
+      {
+        "platform": "Facebook Messenger",
+        "url": "http://m.me/danhthiepdientuproid",
+        "icon": "fab fa-facebook-messenger"
+      }
+    ],
+    "themeColor": "#995e01",
+    "bio": "Chuyên gia tư vấn nội thất với hơn 10 năm kinh nghiệm. Cam kết mang đến không gian sống hoàn hảo cho gia đình bạn."
+  },
+  "lastUpdated": "2026-03-21T00:38:00+07:00"
+}

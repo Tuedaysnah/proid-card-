@@ -1,0 +1,70 @@
+.elementor-991 .elementor-element.elementor-element-6d91ad2{--display:flex;}#elementor-popup-modal-991 .dialog-widget-content{animation-duration:0.6s;border-radius:15px 15px 15px 15px;box-shadow:0px 0px 23px 0px rgba(0, 0, 0, 0.2);}#elementor-popup-modal-991{background-color:#00000000;justify-content:center;align-items:center;pointer-events:all;}#elementor-popup-modal-991 .dialog-message{width:25vw;height:auto;}@media(max-width:767px){#elementor-popup-modal-991 .dialog-message{width:80vw;}}/* Start custom CSS for shortcode, class: .elementor-element-a8c7545 *//* Update button styles for Language Switch Form */
+.me-proid-language-switch-form .me-proid-lang-switch-button {
+    background: linear-gradient(135deg, #d93025, #ff4436, #b22222, #ff6347);
+    background-size: 300% 100%;
+    color: #fff;
+    width: 100%;
+    border: 2px solid #d93025;
+    border-radius: 10px;
+    /* Using Elementor Global Font Variables - Ensure these are defined in your Elementor Site Settings */
+    font-family: var(--e-global-typography-f892087-font-family, Sans-serif); /* Fallback to Sans-serif */
+    font-size: var(--e-global-typography-f892087-font-size);
+    font-weight: var(--e-global-typography-f892087-font-weight);
+    text-transform: var(--e-global-typography-f892087-text-transform);
+    transition: background-position 0.5s ease, box-shadow 0.3s ease;
+    padding: 10px 20px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        0 4px 8px rgba(217, 48, 37, 0.6);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: inline-flex; /* Helps align icon and text */
+    align-items: center;  /* Helps align icon and text */
+    justify-content: center; /* Helps align icon and text */
+    line-height: normal; /* Reset line-height */
+    width: 100%; /* Adjust if needed */
+}
+
+.me-proid-language-switch-form .me-proid-lang-switch-button:hover {
+    background-position: 100% 0;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 6px 12px rgba(217, 48, 37, 0.8);
+}
+
+.me-proid-language-switch-form .me-proid-lang-switch-button::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), transparent 60%);
+    transform: rotate(45deg);
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.me-proid-language-switch-form .me-proid-lang-switch-button:hover::before {
+    opacity: 0.6;
+}
+
+/* Ensure icon alignment */
+.me-proid-language-switch-form .me-proid-lang-switch-button i {
+    vertical-align: middle; /* Adjust vertical alignment if needed */
+    margin-right: 8px; /* Keep consistent margin */
+}
+
+
+input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], select, textarea {
+    width: 100%;
+    border: 1px solid #666;
+    border-radius: 3px;
+    padding: .5rem 1rem;
+    transition: all .3s;
+    border-radius: 10px;
+    margin-top: 5px;
+}/* End custom CSS */

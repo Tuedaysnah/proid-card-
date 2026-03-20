@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyễn Mỹ Linh - Pro ID Card</title>
+<meta name="description" content="Danh thiếp số - Nguyễn Mỹ Linh - Giám đốc Marketing - Công ty Nội thất Trường An">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="card.css">
+</head>
+<body>
+<div class="card-wrapper" id="cardWrapper">
+  <div class="cover-section" id="coverSection">
+    <div class="cover-overlay"></div>
+    <div class="logo-badge"><img src="./PROIDeefb94b2 – Pro ID_files/1000007564.png" alt="Logo"></div>
+  </div>
+  <div class="avatar-section">
+    <div class="avatar-ring"><img id="avatarImg" src="./PROIDeefb94b2 – Pro ID_files/1000007571-scaled.png" alt="Avatar"></div>
+  </div>
+  <div class="info-section">
+    <h1 class="name"><span id="firstName">Nguyễn</span> <span id="lastName">Mỹ Linh</span></h1>
+    <div class="verified"><i class="fas fa-check-circle"></i> Verified</div>
+    <p class="job-title" id="jobTitle">Giám đốc marketing</p>
+    <p class="company" id="company">Công ty nội thất Trường An</p>
+    <p class="bio" id="bio">Chuyên gia tư vấn nội thất với hơn 10 năm kinh nghiệm.</p>
+  </div>
+  <div class="actions-section">
+    <a href="tel:0986851829" class="btn btn-primary" id="btnCall"><i class="fas fa-phone"></i> Gọi ngay</a>
+    <a href="#" class="btn btn-secondary" id="btnSave"><i class="fas fa-download"></i> Lưu danh bạ</a>
+  </div>
+  <div class="contact-section">
+    <a href="tel:0986851829" class="contact-item" id="phoneItem">
+      <div class="contact-icon phone-icon"><i class="fas fa-phone-alt"></i></div>
+      <div class="contact-text"><span class="contact-label">Điện thoại</span><span class="contact-value" id="phoneValue">0986851829</span></div>
+      <i class="fas fa-chevron-right"></i>
+    </a>
+    <a href="mailto:sale@noithattruongan.vn" class="contact-item" id="emailItem">
+      <div class="contact-icon email-icon"><i class="fas fa-envelope"></i></div>
+      <div class="contact-text"><span class="contact-label">Email</span><span class="contact-value" id="emailValue">sale@noithattruongan.vn</span></div>
+      <i class="fas fa-chevron-right"></i>
+    </a>
+    <a href="https://noithattruongan.vn/" target="_blank" class="contact-item" id="websiteItem">
+      <div class="contact-icon web-icon"><i class="fas fa-globe"></i></div>
+      <div class="contact-text"><span class="contact-label">Website</span><span class="contact-value" id="websiteValue">noithattruongan.vn</span></div>
+      <i class="fas fa-chevron-right"></i>
+    </a>
+    <div class="contact-item" id="addressItem1">
+      <div class="contact-icon addr-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="contact-text"><span class="contact-label">Trụ sở chính</span><span class="contact-value" id="addressValue1">Lô 48-BT5, khu đô thị mới Cầu Bươu, xã Tân Triều, huyện Thanh Trì, Hà Nội</span></div>
+    </div>
+    <div class="contact-item" id="addressItem2">
+      <div class="contact-icon addr-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="contact-text"><span class="contact-label">Chi nhánh</span><span class="contact-value" id="addressValue2">Trung tâm Đảo Ngọc - Thảo Điền</span></div>
+    </div>
+  </div>
+  <div class="social-section">
+    <a href="https://zalo.me/0986851829" target="_blank" class="social-btn zalo-btn"><i class="fas fa-comment-dots"></i> Zalo</a>
+    <a href="http://m.me/danhthiepdientuproid" target="_blank" class="social-btn messenger-btn"><i class="fab fa-facebook-messenger"></i> Messenger</a>
+  </div>
+  <div class="footer-section">
+    <p>Powered by <strong>Pro ID</strong> &copy; 2026</p>
+  </div>
+</div>
+<script>
+fetch('data.json').then(r=>r.json()).then(d=>{
+  const p=d.profile;
+  document.getElementById('firstName').textContent=p.firstName;
+  document.getElementById('lastName').textContent=p.lastName;
+  document.getElementById('jobTitle').textContent=p.jobTitle;
+  document.getElementById('company').textContent=p.company;
+  document.getElementById('bio').textContent=p.bio||'';
+  document.getElementById('phoneValue').textContent=p.phone;
+  document.getElementById('emailValue').textContent=p.email;
+  document.getElementById('websiteValue').textContent=p.website.replace(/https?:\/\//,'');
+  document.getElementById('addressValue1').textContent=p.addresses[0].address;
+  document.getElementById('addressValue2').textContent=p.addresses[1].address;
+  document.querySelector('.contact-item[id=phoneItem]').href='tel:'+p.phone;
+  document.querySelector('.contact-item[id=emailItem]').href='mailto:'+p.email;
+  document.querySelector('.contact-item[id=websiteItem]').href=p.website;
+  document.getElementById('btnCall').href='tel:'+p.phone;
+  if(p.avatar) document.getElementById('avatarImg').src=p.avatar;
+  if(p.themeColor){
+    document.documentElement.style.setProperty('--accent',p.themeColor);
+  }
+}).catch(()=>{});
+</script>
+</body>
+</html>

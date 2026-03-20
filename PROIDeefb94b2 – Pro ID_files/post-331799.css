@@ -1,0 +1,23 @@
+.elementor-331799 .elementor-element.elementor-element-9bf051e{--display:flex;--flex-direction:column;--container-widget-width:calc( ( 1 - var( --container-widget-flex-grow ) ) * 100% );--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--align-items:center;--border-radius:10px 10px 10px 10px;--z-index:10;}.elementor-widget-image .widget-image-caption{color:var( --e-global-color-text );font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-size:var( --e-global-typography-text-font-size );font-weight:var( --e-global-typography-text-font-weight );text-transform:var( --e-global-typography-text-text-transform );letter-spacing:var( --e-global-typography-text-letter-spacing );}.elementor-331799 .elementor-element.elementor-element-3698779f img{width:250px;height:250px;object-fit:cover;object-position:center center;border-radius:10px 10px 10px 10px;}.elementor-widget-button .elementor-button{background-color:var( --e-global-color-accent );font-family:var( --e-global-typography-accent-font-family ), Sans-serif;font-weight:var( --e-global-typography-accent-font-weight );}.elementor-331799 .elementor-element.elementor-element-5556a9c0 .elementor-button{background-color:var( --e-global-color-5882325 );font-family:var( --e-global-typography-f892087-font-family ), Sans-serif;font-size:var( --e-global-typography-f892087-font-size );font-weight:var( --e-global-typography-f892087-font-weight );text-transform:var( --e-global-typography-f892087-text-transform );line-height:var( --e-global-typography-f892087-line-height );fill:var( --e-global-color-ef9c8bc );color:var( --e-global-color-ef9c8bc );box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);border-style:none;border-radius:0px 0px 0px 0px;padding:10px 10px 10px 10px;}.elementor-331799 .elementor-element.elementor-element-5556a9c0{width:100%;max-width:100%;}.elementor-331799 .elementor-element.elementor-element-5556a9c0 .elementor-button-content-wrapper{flex-direction:row;}.elementor-331799 .elementor-element.elementor-element-5556a9c0 .elementor-button .elementor-button-content-wrapper{gap:10px;}#elementor-popup-modal-331799 .dialog-widget-content{animation-duration:0.6s;border-radius:10px 10px 10px 10px;box-shadow:2px 8px 23px 3px rgba(0,0,0,0.2);}#elementor-popup-modal-331799{background-color:#00000000;justify-content:center;align-items:center;pointer-events:all;}#elementor-popup-modal-331799 .dialog-message{width:334px;height:auto;}@media(max-width:1024px){.elementor-widget-image .widget-image-caption{font-size:var( --e-global-typography-text-font-size );letter-spacing:var( --e-global-typography-text-letter-spacing );}.elementor-331799 .elementor-element.elementor-element-5556a9c0 .elementor-button{font-size:var( --e-global-typography-f892087-font-size );line-height:var( --e-global-typography-f892087-line-height );}}@media(min-width:768px){.elementor-331799 .elementor-element.elementor-element-9bf051e{--content-width:430px;}}@media(max-width:767px){.elementor-331799 .elementor-element.elementor-element-9bf051e{--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--gap:20px 20px;--row-gap:20px;--column-gap:20px;}.elementor-widget-image .widget-image-caption{font-size:var( --e-global-typography-text-font-size );letter-spacing:var( --e-global-typography-text-letter-spacing );}.elementor-331799 .elementor-element.elementor-element-3698779f{width:100%;max-width:100%;text-align:center;}.elementor-331799 .elementor-element.elementor-element-3698779f img{width:100%;object-fit:contain;}.elementor-331799 .elementor-element.elementor-element-5556a9c0 .elementor-button{font-size:var( --e-global-typography-f892087-font-size );line-height:var( --e-global-typography-f892087-line-height );border-radius:5px 5px 5px 5px;}#elementor-popup-modal-331799 .dialog-message{width:317px;}#elementor-popup-modal-331799 .dialog-widget-content{border-radius:5px 5px 5px 5px;}}/* Start custom CSS for button, class: .elementor-element-5556a9c0 */#zalobutton22{
+    width: 100%;
+}/* End custom CSS */
+/* Start custom CSS for container, class: .elementor-element-9bf051e *//* 479px and smaller screen sizes */
+@media (max-width:479px){
+
+	/* Shortcode */
+	.elementor-location-popup .elementor-element .elementor-shortcode{
+		display:flex;
+		justify-content:center;
+	}
+	
+}
+
+/* 450px and smaller screen sizes */
+@media (max-width:450px){
+
+	/* Shortcode */
+	.elementor-location-popup .elementor-element .elementor-shortcode{
+		display:flex;
+	}
+	
+}/* End custom CSS */
