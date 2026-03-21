@@ -1,9 +1,9 @@
 {
   "profile": {
     "firstName": "Nguyễn",
-    "lastName": "Mỹ Linh",
-    "jobTitle": "Giám đốc marketing",
-    "company": "Công ty nội thất Trường An",
+    "lastName": "Thị Quỳnh Anh",
+    "jobTitle": "Trưởng phòng Giao Dịch",
+    "company": "VpBank Hoa Lư",
     "phone": "0986851829",
     "email": "sale@noithattruongan.vn",
     "website": "https://noithattruongan.vn/",
@@ -17,6 +17,10 @@
       {
         "label": "Chi nhánh",
         "address": "Trung tâm Đảo Ngọc - Thảo Điền"
+      },
+      {
+        "label": "Mới",
+        "address": ""
       }
     ],
     "socialLinks": [
@@ -32,7 +36,7 @@
       }
     ],
     "themeColor": "#995e01",
-    "bio": "Chuyên gia tư vấn nội thất với hơn 10 năm kinh nghiệm. Cam kết mang đến không gian sống hoàn hảo cho gia đình bạn."
+    "bio": "Chuyên gia tài chính cá nhân với hơn 10 năm kinh nghiệm. "
   },
-  "lastUpdated": "2026-03-21T00:38:00+07:00"
+  "lastUpdated": "2026-03-21T05:30:01.770Z"
 }
