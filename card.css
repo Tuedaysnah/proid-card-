@@ -1,43 +1,43 @@
-:root{--accent:#995e01;--bg:#0a0a0f;--card:#15151e;--glass:rgba(255,255,255,.06);--text:#f0f0f5;--sub:#9a9ab0;--radius:18px;--shadow:0 8px 32px rgba(0,0,0,.4)}
+:root{--accent:#995e01;--bg:#f4f5f7;--card:#ffffff;--glass:rgba(0,0,0,.04);--text:#1a1a1a;--sub:#666666;--radius:20px;--shadow:0 10px 40px rgba(0,0,0,.08)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;justify-content:center;padding:20px 10px}
-.card-wrapper{max-width:440px;width:100%;border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow);animation:fadeUp .6s ease}
+.card-wrapper{max-width:440px;width:100%;border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow);animation:fadeUp .6s ease;border:1px solid rgba(0,0,0,.05)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-.cover-section{height:200px;position:relative;background:linear-gradient(135deg,var(--accent),#1a1a2e);overflow:hidden}
-.cover-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,var(--card))}
-.logo-badge{position:absolute;top:14px;right:14px;width:48px;height:48px;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.3)}
-.logo-badge img{width:100%;height:100%;object-fit:cover}
+.cover-section{height:180px;position:relative;background:linear-gradient(135deg,var(--accent),#e6ba73);overflow:hidden}
+.cover-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(255,255,255,.9),var(--card))}
+.logo-badge{position:absolute;top:14px;right:14px;width:48px;height:48px;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.1);background:#fff;padding:2px}
+.logo-badge img{width:100%;height:100%;object-fit:contain}
 .avatar-section{display:flex;justify-content:center;margin-top:-65px;position:relative;z-index:2}
-.avatar-ring{width:130px;height:130px;border-radius:50%;padding:4px;background:linear-gradient(135deg,var(--accent),#e6a817);box-shadow:0 4px 20px rgba(153,94,1,.4)}
-.avatar-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--card)}
+.avatar-ring{width:130px;height:130px;border-radius:50%;padding:4px;background:#fff;box-shadow:0 8px 30px rgba(153,94,1,.2)}
+.avatar-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid #f0f0f0}
 .info-section{text-align:center;padding:16px 24px 8px}
-.name{font-size:1.6rem;font-weight:800;letter-spacing:.5px}
-.verified{display:inline-flex;align-items:center;gap:4px;color:#2ecc71;font-size:.75rem;font-weight:600;margin:6px 0;padding:3px 10px;background:rgba(46,204,113,.12);border-radius:20px}
-.job-title{color:var(--accent);font-weight:600;font-size:.95rem;margin-top:4px}
-.company{color:var(--sub);font-size:.85rem;margin-top:2px}
-.bio{color:var(--sub);font-size:.8rem;margin-top:10px;line-height:1.5;padding:0 8px}
-.actions-section{display:flex;gap:10px;padding:16px 24px}
-.btn{flex:1;text-align:center;padding:12px;border-radius:14px;text-decoration:none;font-weight:700;font-size:.85rem;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px}
-.btn-primary{background:linear-gradient(135deg,var(--accent),#c78a00);color:#fff;box-shadow:0 4px 15px rgba(153,94,1,.35)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(153,94,1,.5)}
-.btn-secondary{background:var(--glass);color:var(--text);border:1px solid rgba(255,255,255,.1)}
-.btn-secondary:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
-.contact-section{padding:8px 20px}
-.contact-item{display:flex;align-items:center;gap:14px;padding:14px 12px;border-radius:14px;text-decoration:none;color:var(--text);transition:background .2s;cursor:pointer}
-.contact-item:hover{background:var(--glass)}
-.contact-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.phone-icon{background:rgba(46,204,113,.15);color:#2ecc71}
-.email-icon{background:rgba(52,152,219,.15);color:#3498db}
-.web-icon{background:rgba(155,89,182,.15);color:#9b59b6}
-.addr-icon{background:rgba(231,76,60,.15);color:#e74c3c}
+.name{font-size:1.65rem;font-weight:800;letter-spacing:-.5px;color:#000}
+.verified{display:inline-flex;align-items:center;gap:4px;color:#27ae60;font-size:.72rem;font-weight:700;margin:6px 0;padding:4px 12px;background:rgba(39,174,101,.08);border-radius:20px;text-transform:uppercase}
+.job-title{color:var(--accent);font-weight:700;font-size:1rem;margin-top:4px}
+.company{color:var(--sub);font-size:.85rem;margin-top:2px;font-weight:500}
+.bio{color:var(--sub);font-size:.82rem;margin-top:12px;line-height:1.5;padding:0 15px}
+.actions-section{display:flex;gap:12px;padding:20px 24px}
+.btn{flex:1;text-align:center;padding:14px;border-radius:15px;text-decoration:none;font-weight:700;font-size:.88rem;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#b37107);color:#fff;box-shadow:0 6px 20px rgba(153,94,1,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(153,94,1,.4)}
+.btn-secondary{background:#f0f2f5;color:var(--text);border:1px solid rgba(0,0,0,.05)}
+.btn-secondary:hover{background:#e4e6e9;transform:translateY(-2px)}
+.contact-section{padding:5px 20px 15px}
+.contact-item{display:flex;align-items:center;gap:15px;padding:14px 12px;border-radius:16px;text-decoration:none;color:var(--text);transition:all .2s;border:1px solid transparent}
+.contact-item:hover{background:#f8f9fa;border-color:rgba(0,0,0,.03);transform:translateX(5px)}
+.contact-icon{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.phone-icon{background:rgba(46,204,113,.1);color:#27ae60}
+.email-icon{background:rgba(52,152,219,.1);color:#2980b9}
+.web-icon{background:rgba(155,89,182,.1);color:#8e44ad}
+.addr-icon{background:rgba(231,76,60,.1);color:#c0392b}
 .contact-text{flex:1;display:flex;flex-direction:column;min-width:0}
-.contact-label{font-size:.7rem;color:var(--sub);text-transform:uppercase;letter-spacing:.5px}
-.contact-value{font-size:.85rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.contact-item .fa-chevron-right{color:var(--sub);font-size:.7rem}
-.social-section{display:flex;gap:10px;padding:12px 24px}
-.social-btn{flex:1;text-align:center;padding:11px;border-radius:14px;text-decoration:none;font-weight:700;font-size:.82rem;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .3s}
-.zalo-btn{background:rgba(0,104,255,.15);color:#0068ff;border:1px solid rgba(0,104,255,.25)}
-.zalo-btn:hover{background:rgba(0,104,255,.25);transform:translateY(-2px)}
-.messenger-btn{background:rgba(168,73,255,.12);color:#a849ff;border:1px solid rgba(168,73,255,.2)}
-.messenger-btn:hover{background:rgba(168,73,255,.22);transform:translateY(-2px)}
-.footer-section{text-align:center;padding:20px;color:var(--sub);font-size:.7rem;border-top:1px solid rgba(255,255,255,.05)}
+.contact-label{font-size:.7rem;color:var(--sub);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.contact-value{font-size:.9rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.contact-item .fa-chevron-right{color:#ccc;font-size:.7rem}
+.social-section{display:flex;gap:12px;padding:15px 24px 25px}
+.social-btn{flex:1;text-align:center;padding:12px;border-radius:15px;text-decoration:none;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+.zalo-btn{background:#fff;color:#0068ff;border:1.5px solid #0068ff}
+.zalo-btn:hover{background:#0068ff;color:#fff}
+.messenger-btn{background:#fff;color:#a849ff;border:1.5px solid #a849ff}
+.messenger-btn:hover{background:#a849ff;color:#fff}
+.footer-section{text-align:center;padding:25px;color:var(--sub);font-size:.75rem;background:#fcfcfc;border-top:1px solid #f0f0f0}
