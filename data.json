@@ -17,26 +17,22 @@
       {
         "label": "Chi nhánh",
         "address": "Trung tâm Đảo Ngọc - Thảo Điền"
-      },
-      {
-        "label": "Mới",
-        "address": ""
       }
     ],
     "socialLinks": [
       {
         "platform": "Zalo",
-        "url": "https://zalo.me/0866 932 802",
+        "url": "https://zalo.me/0986851829",
         "icon": "fab fa-rocketchat"
       },
       {
         "platform": "Facebook Messenger",
-        "url": "",
+        "url": "http://m.me/danhthiepdientuproid",
         "icon": "fab fa-facebook-messenger"
       }
     ],
     "themeColor": "#995e01",
-    "bio": "Chuyên gia tài chính cá nhân với hơn 10 năm kinh nghiệm. "
+    "bio": "Chuyên gia tài chính cá nhân với hơn 10 năm kinh nghiệm."
   },
-  "lastUpdated": "2026-03-21T05:30:54.003Z"
+  "lastUpdated": "2026-03-21T06:09:31.379Z"
 }
