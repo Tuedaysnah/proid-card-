@@ -46,14 +46,14 @@
       <div class="contact-text"><span class="contact-label">Website</span><span class="contact-value" id="websiteValue">noithattruongan.vn</span></div>
       <i class="fas fa-chevron-right"></i>
     </a>
-    <div class="contact-item" id="addressItem1">
+    <a href="#" target="_blank" class="contact-item" id="addressItem1">
       <div class="contact-icon addr-icon"><i class="fas fa-map-marker-alt"></i></div>
       <div class="contact-text"><span class="contact-label">Trụ sở chính</span><span class="contact-value" id="addressValue1">Lô 48-BT5, khu đô thị mới Cầu Bươu, xã Tân Triều, huyện Thanh Trì, Hà Nội</span></div>
-    </div>
-    <div class="contact-item" id="addressItem2">
+    </a>
+    <a href="#" target="_blank" class="contact-item" id="addressItem2">
       <div class="contact-icon addr-icon"><i class="fas fa-map-marker-alt"></i></div>
       <div class="contact-text"><span class="contact-label">Chi nhánh</span><span class="contact-value" id="addressValue2">Trung tâm Đảo Ngọc - Thảo Điền</span></div>
-    </div>
+    </a>
   </div>
   <div class="social-section">
     <a href="https://zalo.me/0986851829" target="_blank" class="social-btn zalo-btn"><i class="fas fa-comment-dots"></i> Zalo</a>
@@ -74,12 +74,41 @@ fetch('data.json').then(r=>r.json()).then(d=>{
   document.getElementById('phoneValue').textContent=p.phone;
   document.getElementById('emailValue').textContent=p.email;
   document.getElementById('websiteValue').textContent=p.website.replace(/https?:\/\//,'');
-  document.getElementById('addressValue1').textContent=p.addresses[0].address;
-  document.getElementById('addressValue2').textContent=p.addresses[1].address;
+  
+  // Set Addresses and Maps Links
+  const addr1 = p.addresses[0].address;
+  const addr2 = p.addresses[1].address;
+  document.getElementById('addressValue1').textContent = addr1;
+  document.getElementById('addressValue2').textContent = addr2;
+  document.getElementById('addressItem1').href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addr1);
+  document.getElementById('addressItem2').href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addr2);
+
   document.querySelector('.contact-item[id=phoneItem]').href='tel:'+p.phone;
   document.querySelector('.contact-item[id=emailItem]').href='mailto:'+p.email;
   document.querySelector('.contact-item[id=websiteItem]').href=p.website;
   document.getElementById('btnCall').href='tel:'+p.phone;
+  
+  // vCard Download Logic
+  document.getElementById('btnSave').onclick = (e) => {
+    e.preventDefault();
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+N:${p.lastName};${p.firstName};;;
+FN:${p.firstName} ${p.lastName}
+ORG:${p.company}
+TITLE:${p.jobTitle}
+TEL;TYPE=CELL:${p.phone}
+EMAIL;TYPE=INTERNET:${p.email}
+URL:${p.website}
+END:VCARD`;
+    const blob = new Blob([vcard], { type: 'text/vcard' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = p.firstName + p.lastName + '.vcf';
+    a.click();
+  };
+
   if(p.avatar) document.getElementById('avatarImg').src=p.avatar;
   if(p.themeColor){
     document.documentElement.style.setProperty('--accent',p.themeColor);
